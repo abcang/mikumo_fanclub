@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>みくもファンクラブ</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="wraper">
+    <div class="contents">
+
+      <div class="title">
+        <h1>みくも<br class="br-sp">ファンクラブ</h1>
+      </div>
+      <div class="bgimg">
+        <div class="bgimg-wrap">
+          <div class="row">
+            <div class="conoha character col-xs-6">
+              <dev class="chara-wrap">
+                <img class="face" src="/images/conoha-chan.png">
+                <img class="msg shake-rumble shake-constant" src="/images/conoha-chan_msg.png">
+              </dev>
+              <div class="name h3">
+                美雲このは<br>
+                <a href="https://twitter.com/MikumoConoHa" target="_blank">@MikumoConoHa</a>
+              </div>
+              <div class="love-count h3">
+                <span class="count shake-rumble shake-constant">0</span><br class="br-sp">大好き！
+              </div>
+              <button type="button" class="btn btn-info">このはちゃん<br class="br-sp">大好き！</button>
+            </div>
+            <div class="anzu character col-xs-6">
+              <dev class="chara-wrap">
+                <img class="face" src="/images/anzu-chan.png">
+                <img class="msg shake-rumble shake-constant" src="/images/anzu-chan_msg.png">
+              </dev>
+              <div class="name h3">
+                美雲あんず<br>
+                <a href="https://twitter.com/MikumoAnzu" target="_blank">@MikumoAnzu</a>
+              </div>
+              <div class="love-count h3">
+                <span class="count shake-rumble shake-constant">0</span><br class="br-sp">大好き！
+              </div>
+              <button type="button" class="btn btn-info">あんずちゃん<br class="br-sp">大好き！</button>
+            </div>
+          </div>
+          <div class="visitor h3">
+            見てる人: <span class="visitor-count">1</span>
+          </div>
+          <div class="row">
+            <div class="share col-md-6">
+              <a href="http://xn--y8j1ek.com/" class="btn btn-info" role="button" target="_blank">みくも.com へGO</a>
+            </div>
+            <div class="share col-md-6">
+              <a href="http://pronama.github.io/mascot-apps-contest/2014/" class="btn btn-info" role="button" target="_blank">マスコットアプリ文化祭</a>
+            </div>
+          </div>
+          <div class="row info">
+            <div class="share col-xs-6">
+              <div class="twitter">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-related="MikumoConoHa,MikumoAnzu" data-hashtags="みくもファンクラブ,マスコットアプリ文化祭" data-count="vertical">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <a href="https://twitter.com/ABCanG1015" target="_blank">@ABCanG1015</a><br>
+              <a href="http://abcang.net" target="_blank">abcang.net</a>
+            </div>
+          </div>
+          <p>©GMO Internet, Inc.<br>画像の再利用は禁止です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" defer></script>
+  <script src="//cdn.jsdelivr.net/jquery.jrumble/1.3.0/jquery.jrumble.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js" defer></script>
+
+  <% const min = environment === 'production' ? '.min' : '' %>
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script src="/js/funclub<%= min %>.js" defer></script>
+  <% if (public._data && public._data.analytics) { %>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', '<%- public._data.analytics %>', 'auto');
+    ga('send', 'pageview');
+    </script>
+  <% } %>
+</body>
+</html>

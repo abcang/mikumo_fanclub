@@ -1,0 +1,18 @@
+{
+  "extends": "airbnb-base/legacy",
+  "globals": {
+    "io": false,
+    "FastClick": false
+  },
+  "env": {
+    "jquery": true
+  },
+  "rules": {
+    "space-before-function-paren": ["error", "never"],
+    "func-names": 0,
+    "wrap-iife": 0,
+    "vars-on-top": 0,
+    "no-unused-vars": 1,
+    "no-param-reassign": ["error", { "props": false }]
+  }
+}

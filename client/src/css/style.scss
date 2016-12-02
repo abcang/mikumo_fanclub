@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'Anzu';
+  src: url('../fonts/anzu.woff') format('woff'),
+  url('../fonts/anzu.ttf') format('truetype');
+}
+
+.bgimg {
+  background-image: url('../images/conoha-anzu.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bgimg-wrap {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.contents {
+  font-family: 'Anzu';
+  margin: 15px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.title {
+  padding: 1px;
+  background-color: #12b8d7;
+  color: white;
+  text-align: center;
+}
+
+.character {
+}
+
+.chara-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.chara-wrap img {
+  width: 100%;
+  max-width: 320px;
+}
+
+.msg {
+  opacity: 0;
+}
+
+.face {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+a.btn {
+  padding: 10px 0;
+  width: 100%;
+  font-size: 24px;
+  margin: 5px 0;
+}
+
+.info {
+  margin: 10px 0;
+}
+
+@media screen and (min-width: 480px) {
+  .br-sp { display:none; }
+  .contents {
+    font-size: 20px;
+  }
+  .h3 {
+    font-size: 34px;
+  }
+}
+
+.character button {
+  padding: 10px 0;
+  width: 100%;
+  font-size: 24px;
+}
