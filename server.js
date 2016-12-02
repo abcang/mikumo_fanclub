@@ -32,7 +32,7 @@ const server = app.listen(process.env.PORT || 3000);
 const io = require('socket.io').listen(server);
 
 io.on('connection', async (socket) => {
-  io.emit('visitor', socket.client.conn.server.clientsCount);
+  io.emit('visitor', {count: socket.client.conn.server.clientsCount});
 
   const [anzuCount, conohaCount] = (await redis.multi()
     .get('count:anzu')
@@ -54,6 +54,6 @@ io.on('connection', async (socket) => {
   });
 
   socket.on('disconnect', () => {
-    io.emit('visitor', socket.client.conn.server.clientsCount);
+    io.emit('visitor', {count: socket.client.conn.server.clientsCount});
   });
 });
