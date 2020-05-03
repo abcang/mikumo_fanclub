@@ -1,3 +1,5 @@
+'use strict';
+
 $(function() {
   FastClick.attach(document.body);
 
@@ -76,12 +78,13 @@ $(function() {
     $('.visitor-count').text(data.count);
   });
 
+  // eslint-disable-next-line no-console
   console.log('あなたの愛はわかりますが、一度に100以上送るのはやめましょう。');
 });
 
 
 // contributed by がおさん(@gaogao_9)
-
+/* eslint-disable */
 function MikumoCPSCounterClass() {
   var cnt = [];
   var ele = $('.count');
@@ -103,7 +106,7 @@ function MikumoCPSCounterClass() {
       if (cnt[i].length < 2) {
         flag = true;
         return;
-      } else if (cnt[i].length > 5) {
+      } if (cnt[i].length > 5) {
         cnt[i].length = 5;
       }
       text[i] = name[i] + 'の秒間カウント：' + ~~(self.getCurrentCPS(i)) + '回';
@@ -132,12 +135,11 @@ function MikumoCPSCounterClass() {
     if (!isNaN(i) && i !== null) {
       if (!cnt[i] || cnt[i].length == 1) return -1;
       return (cnt[i][0] - cnt[i][cnt[i].length - 1]) / (cnt[i].length - 1);
-    } else {
-      return cnt.map(function(e, i) {
-        if (e.length < 2) return -1;
-        return (e[0] - e[e.length - 1]) / (e.length - 1);
-      });
     }
+    return cnt.map(function(e, i) {
+      if (e.length < 2) return -1;
+      return (e[0] - e[e.length - 1]) / (e.length - 1);
+    });
   };
 }
 
@@ -146,6 +148,8 @@ var mikumo;
 $(function() {
   mikumo = new MikumoCPSCounterClass();
 });
+
+/* eslint-enable */
 
 // example
 // mikumo.isShowLog = false; //計測中にコンソールにログを吐くかを指定します(bool型)。デフォルトはtrueです。

@@ -1,18 +1,22 @@
-{
-  "extends": "airbnb-base/legacy",
+module.exports = {
+  "root": true,
+  "extends": [
+    'eslint:recommended',
+    'airbnb-base/legacy',
+  ],
   "globals": {
     "io": false,
     "FastClick": false
   },
   "env": {
-    "jquery": true
+    "browser": true,
+    "jquery": true,
+    "es6": false,
   },
+  "parserOptions": {},
   "rules": {
     "space-before-function-paren": ["error", "never"],
     "func-names": 0,
-    "wrap-iife": 0,
     "vars-on-top": 0,
-    "no-unused-vars": 1,
-    "no-param-reassign": ["error", { "props": false }]
   }
 }
