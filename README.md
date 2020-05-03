@@ -4,22 +4,22 @@
 [みくもファンクラブ](https://mikumo.abcang.net)
 
 ## 必要な環境
-* Node.js v7以上
+* Node.js v12以上
 * redis
 
 ## 開発
 
 ```bash
-$ npm i
-$ npm run dev
+$ yarn
+$ yarn dev
 ```
 
 ## 実行
 
 ```bash
-$ npm i
-$ npm run release-build
-$ npm start
+$ yarn
+$ yarn release-build
+$ yarn start
 ```
 
 dockerを使う場合
