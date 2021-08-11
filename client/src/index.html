@@ -10,15 +10,20 @@
   <meta property="og:title" content="みくもファンクラブ" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mikumo.abcang.net/" />
-  <meta property="og:image" content="https://mikumo.abcang.net/images/ogp1200x630.png" />
-  <meta property="og:image" content="https://mikumo.abcang.net/images/ogp630x630.png" />
+  <meta property="og:image" content="./images/ogp1200x630.png" />
+  <meta property="og:image" content="./images/ogp630x630.png" />
   <meta property="og:site_name" content="みくもファンクラブ" />
   <meta property="og:description" content="このはちゃんとあんずちゃんを愛でるサイトです。" />
   <meta name="twitter:card" content="summary">
 
-  <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="icon" href="./favicon.ico" type="image/vnd.microsoft.icon">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" defer></script>
+  <script src="//cdn.jsdelivr.net/jquery.jrumble/1.3.0/jquery.jrumble.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js" defer></script>
+
+  <script src="/socket.io/socket.io.js" defer></script>
 </head>
 
 <body>
@@ -33,8 +38,8 @@
           <div class="row">
             <div class="conoha character col-xs-6">
               <dev class="chara-wrap">
-                <img class="face" src="/images/conoha-chan.png">
-                <img class="msg shake-rumble shake-constant" src="/images/conoha-chan_msg.png">
+                <img class="face" src="./images/conoha-chan.png">
+                <img class="msg shake-rumble shake-constant" src="./images/conoha-chan_msg.png">
               </dev>
               <div class="name h3">
                 美雲このは<br>
@@ -47,8 +52,8 @@
             </div>
             <div class="anzu character col-xs-6">
               <dev class="chara-wrap">
-                <img class="face" src="/images/anzu-chan.png">
-                <img class="msg shake-rumble shake-constant" src="/images/anzu-chan_msg.png">
+                <img class="face" src="./images/anzu-chan.png">
+                <img class="msg shake-rumble shake-constant" src="./images/anzu-chan_msg.png">
               </dev>
               <div class="name h3">
                 美雲あんず<br>
@@ -88,24 +93,5 @@
       </div>
     </div>
   </div>
-
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" defer></script>
-  <script src="//cdn.jsdelivr.net/jquery.jrumble/1.3.0/jquery.jrumble.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js" defer></script>
-
-  <% const min = environment === 'production' ? '.min' : '' %>
-  <script src="/socket.io/socket.io.js" defer></script>
-  <script src="/js/funclub<%= min %>.js" defer></script>
-  <% if (public._data && public._data.analytics) { %>
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', '<%- public._data.analytics %>', 'auto');
-    ga('send', 'pageview');
-    </script>
-  <% } %>
 </body>
 </html>

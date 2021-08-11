@@ -1,4 +1,4 @@
-'use strict';
+import "../css/style.scss"
 
 $(function() {
   FastClick.attach(document.body);
