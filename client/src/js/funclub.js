@@ -1,4 +1,5 @@
 import '../css/style.scss';
+import domready from 'domready';
 
 const socket = io();
 
@@ -6,32 +7,32 @@ class Character {
   constructor(name) {
     this.timeout = null;
     this.count = 0;
-    this.msg_selector = `.${name} .msg`;
-    this.count_wrapper_selector = `.${name} .love-count`;
-    this.count_selector = `.${name} .count`;
-    this.button_selector = `.${name} button`;
+    this.msgElement = document.querySelector(`.${name} .msg`);
+    this.countWrapperElement = document.querySelector(`.${name} .love-count`);
+    this.countElement = document.querySelector(`.${name} .count`);
 
-    $(this.button_selector).on('click', () => {
+    const button = document.querySelector(`.${name} button`);
+    button.addEventListener('click', () => {
       socket.emit('love', { type: name });
     });
   }
 
   setCount(count) {
     this.count = count;
-    $(this.count_selector).text(count);
+    this.countElement.innerText = count;
   }
 
   increment() {
     this.setCount(this.count + 1);
     if (!this.timeout) {
-      $(this.msg_selector).addClass('shake-rumble shake-constant msg-show')
-      $(this.count_wrapper_selector).addClass('shake-rumble shake-constant');
+      this.msgElement.classList.add('shake-rumble', 'shake-constant', 'msg-show');
+      this.countWrapperElement.classList.add('shake-rumble', 'shake-constant');
     }
     clearTimeout(this.timeout);
     this.timeout = setTimeout(
       () => {
-        $(this.msg_selector).removeClass('shake-rumble shake-constant msg-show')
-        $(this.count_wrapper_selector).removeClass('shake-rumble shake-constant');
+        this.msgElement.classList.remove('shake-rumble', 'shake-constant', 'msg-show');
+        this.countWrapperElement.classList.remove('shake-rumble', 'shake-constant');
         this.timeout = null;
       },
       1000,
@@ -39,7 +40,8 @@ class Character {
   }
 }
 
-$(() => {
+domready(() => {
+  const visitorCountElement = document.querySelector('.visitor-count');
   const conoha = new Character('conoha');
   const anzu = new Character('anzu');
 
@@ -64,7 +66,7 @@ $(() => {
   });
 
   socket.on('visitor', (data) => {
-    $('.visitor-count').text(data.count);
+    visitorCountElement.innerText = data.count;
   });
 
   // eslint-disable-next-line no-console

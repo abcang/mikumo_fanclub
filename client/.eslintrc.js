@@ -7,7 +7,6 @@ module.exports = {
   plugins: ['import'],
   env: {
     browser: true,
-    jquery: true,
     es6: true,
   },
   parserOptions: {
