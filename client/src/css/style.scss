@@ -1,3 +1,5 @@
+@import '~csshake/scss/csshake-hard.scss';
+
 @font-face {
   font-family: 'Anzu';
   src: url('../fonts/anzu.woff') format('woff'),
@@ -44,6 +46,12 @@
 
 .msg {
   opacity: 0;
+  transition: opacity 1s;
+
+  &.msg-show {
+    opacity: 1;
+    transition: opacity 0s linear;
+  }
 }
 
 .face {
@@ -77,4 +85,8 @@ a.btn {
   padding: 10px 0;
   width: 100%;
   font-size: 24px;
+}
+
+.shake-rumble {
+	@include do-shake('shake-rumble', 5, 5, 5, 500ms, .1);
 }

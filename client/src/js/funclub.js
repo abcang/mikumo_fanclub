@@ -2,23 +2,14 @@ import '../css/style.scss';
 
 const socket = io();
 
-const jrumbleOption = {
-  x: 1,
-  y: 1,
-  rotation: 2,
-  speed: 50,
-};
-
 class Character {
   constructor(name) {
     this.timeout = null;
     this.count = 0;
     this.msg_selector = `.${name} .msg`;
+    this.count_wrapper_selector = `.${name} .love-count`;
     this.count_selector = `.${name} .count`;
     this.button_selector = `.${name} button`;
-
-    $(this.msg_selector).jrumble(jrumbleOption);
-    $(this.count_selector).jrumble(jrumbleOption);
 
     $(this.button_selector).on('click', () => {
       socket.emit('love', { type: name });
@@ -33,19 +24,14 @@ class Character {
   increment() {
     this.setCount(this.count + 1);
     if (!this.timeout) {
-      $(this.msg_selector)
-        .stop()
-        .animate({ opacity: 1 }, 0)
-        .trigger('startRumble');
-      $(this.count_selector).trigger('startRumble');
+      $(this.msg_selector).addClass('shake-rumble shake-constant msg-show')
+      $(this.count_wrapper_selector).addClass('shake-rumble shake-constant');
     }
     clearTimeout(this.timeout);
     this.timeout = setTimeout(
       () => {
-        $(this.msg_selector)
-          .animate({ opacity: 0 }, 1000)
-          .trigger('stopRumble');
-        $(this.count_selector).trigger('stopRumble');
+        $(this.msg_selector).removeClass('shake-rumble shake-constant msg-show')
+        $(this.count_wrapper_selector).removeClass('shake-rumble shake-constant');
         this.timeout = null;
       },
       1000,
