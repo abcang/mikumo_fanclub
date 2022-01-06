@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const server = app.listen(process.env.PORT || 3000);
-const io = require('socket.io').listen(server);
+const io = require('socket.io')(server);
 
 io.on('connection', async (socket) => {
   io.emit('visitor', { count: socket.client.conn.server.clientsCount });
