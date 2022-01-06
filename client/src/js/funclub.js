@@ -1,8 +1,6 @@
 import "../css/style.scss"
 
 $(function() {
-  FastClick.attach(document.body);
-
   var socket = io();
 
   var jrumbleOption = {
