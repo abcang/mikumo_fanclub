@@ -77,6 +77,7 @@ module.exports = (env, argv) => {
               loader: 'html-loader',
               options: {
                 sources: {
+                  // eslint-disable-next-line no-unused-vars
                   urlFilter: (attribute, value, resourcePath) => {
                     // The `attribute` argument contains a name of the HTML attribute.
                     // The `value` argument contains a value of the HTML attribute.
