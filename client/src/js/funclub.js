@@ -1,16 +1,16 @@
 import '../css/style.scss';
 
-$(() => {
-  const socket = io();
+const socket = io();
 
-  const jrumbleOption = {
-    x: 1,
-    y: 1,
-    rotation: 2,
-    speed: 50,
-  };
+const jrumbleOption = {
+  x: 1,
+  y: 1,
+  rotation: 2,
+  speed: 50,
+};
 
-  function Character(name) {
+class Character {
+  constructor(name) {
     this.timeout = null;
     this.count = 0;
     this.msg_selector = `.${name} .msg`;
@@ -25,12 +25,12 @@ $(() => {
     });
   }
 
-  Character.prototype.setCount = function setCount(count) {
+  setCount(count) {
     this.count = count;
     $(this.count_selector).text(count);
-  };
+  }
 
-  Character.prototype.increment = function increment() {
+  increment() {
     this.setCount(this.count + 1);
     if (!this.timeout) {
       $(this.msg_selector)
@@ -50,8 +50,10 @@ $(() => {
       },
       1000,
     );
-  };
+  }
+}
 
+$(() => {
   const conoha = new Character('conoha');
   const anzu = new Character('anzu');
 
