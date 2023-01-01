@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+  <title>みくもスタンプ</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="みくもスタンプ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stamp.mikumo.abcang.net/" />
+  <meta property="og:image" content="./ogp1200x630.png" />
+  <meta property="og:image" content="./ogp630x630.png" />
+  <meta property="og:site_name" content="みくもスタンプ" />
+  <meta property="og:description" content="あんず＆このはのスタンプを試せるサイトです。お気に入りのスタンプをたくさん送信したり、スタンプだけを使った会話を楽しんだりしましょう。" />
+  <meta name="twitter:card" content="summary">
+
+  <link rel="shortcut icon" href="./favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="icon" href="./favicon.ico" type="image/vnd.microsoft.icon">
+  <link rel="icon" type="image/png" href="./favicon-48x48.png" sizes="48x48">
+  <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="./favicon-160x160.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="./favicon-196x196.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32">
+
+  <!-- <link href="/css/app.css" rel="stylesheet" type="text/css" /> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/flexibility/2.0.1/flexibility.js" async></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/uiv/0.34.4/uiv.min.js" defer></script>
+  <script src="/socket.io/socket.io.js" defer></script>
+</head>
+<body>
+  <div id="chat">
+    <div class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-2 col-sm-4">
+            <button type="button" class="btn btn-default pull-left" @click="showCharacter = true">
+              <span class="glyphicon glyphicon-question-sign"></span>
+            </button>
+            <modal title="キャラクター紹介" v-model="showCharacter" append-to-body v-cloak>
+              <div class="row" v-if="showCharacter">
+                <div class="col-xs-5 col-sm-4">
+                  <div class="thumbnail">
+                    <img :src="stampPath('anzu', Math.floor(Math.random() * 15) + 1)">
+                  </div>
+                </div>
+                <div class="col-xs-7 col-sm-8">
+                  <div class="h4 charaname">
+                    美雲あんず
+                    <br>
+                    <a href="https://twitter.com/MikumoAnzu" target="_blank" rel="noopener">@MikumoAnzu</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row" v-if="showCharacter">
+                <div class="col-xs-5 col-sm-4">
+                  <div class="thumbnail">
+                    <img :src="stampPath('conoha', Math.floor(Math.random() * 15) + 1)">
+                  </div>
+                </div>
+                <div class="col-xs-7 col-sm-8">
+                  <div class="h4 charaname">
+                    美雲このは
+                    <br>
+                    <a href="https://twitter.com/MikumoConoHa" target="_blank" rel="noopener">@MikumoConoHa</a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                  <a href="https://conoha.mikumo.com/" class="btn btn-default" role="button" target="_blank" rel="noopener">美雲このはオフィシャルサイト</a>
+                </div>
+                <div class="col-xs-12 col-sm-12">
+                  <a href="https://mikumo.abcang.net/" class="btn btn-default" role="button" target="_blank" rel="noopener">みくもファンクラブへGO</a>
+                </div>
+              </div>
+              <div slot="footer">
+                <btn @click="showCharacter=false">閉じる</btn>
+              </div>
+            </modal>
+          </div>
+          <div class="col-xs-8 col-sm-4 h3 text-center">みくもスタンプ</div>
+          <div class="col-xs-2 col-sm-4">
+            <button type="button" class="btn btn-default pull-right" @click="showInfo = true">
+              <span class="glyphicon glyphicon-info-sign"></span>
+            </button>
+            <modal title="みくもスタンプについて" v-model="showInfo" append-to-body v-cloak>
+              画像は<a href="https://www.conoha.jp/conohadocs/blog/10747" target="_blank" rel="noopener">みくもTwitterスタンプ</a>からお借りしました。
+              <a href="https://store.line.me/stickershop/product/1216105" target="_blank" rel="noopener">LINEスタンプ</a>もぜひ利用しましょう。
+
+              <div class="row">
+                <div class="col-xs-6 col-sm-6">
+                </div>
+                <div class="col-xs-6 col-sm-6">
+
+                </div>
+              </div>
+
+              <div class="text-center">
+                <br>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-hashtags="みくもスタンプ,マスコットアプリ文化祭">Tweet</a><br>
+                <br>
+                © 2016 <a href="https://abcang.net" target="_blank" rel="noopener">abcang.net</a>.<br>
+                <br>
+                画像: ©GMO Internet, Inc.<br>
+                画像の再利用は禁止です。
+              </div>
+              <div slot="footer">
+                <btn @click="showInfo=false">閉じる</btn>
+              </div>
+            </modal>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="timeline container" v-cloak>
+      <div>
+        <transition-group class="messages" name="stamp" tag="ul" @enter="addStamp">
+          <li v-for="stamp in stamps" :key="stamp.id" class="clearfix">
+            <div :class="stamp.userId === userId ? 'pull-right' : 'pull-left'">
+              <div class="views h6 text-right" v-if="stamp.userId === userId">
+                <span v-if="stamp.views">既読 {{stamp.views}}</span><br>
+                {{stamp.timeText}}<br>
+              </div>
+              <div class="thumbnail">
+                <img :src="stampPath(stamp.type, stamp.num)">
+              </div>
+              <div class="views h6" v-if="stamp.userId !== userId">
+                <br>
+                {{stamp.timeText}}
+              </div>
+            </div>
+          </li>
+        </transition-group>
+      </div>
+    </div>
+
+    <div class="container" v-cloak>
+      <div class="stamp-box" :class="{'hide-stamps': !visible}">
+        <div class="row stamps">
+          <div v-for="i in stampInfo[type].max" class="col-xs-6 col-sm-3 col-md-2">
+            <a class="thumbnail pointer" @click="post({type: type, num: i})">
+              <img :src="stampPath(type, i)">
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <div class="btn-group btn-group-justified type-tab" :class="{'show-stamps': visible}" data-toggle="buttons">
+        <label v-for="target in ['anzu', 'mikumo', 'conoha']" class="btn btn-default" :class="{active: visible && target === type}" @click="changeType(target, $event)">
+          <input type="radio" :value="target" v-model="type">
+          {{stampInfo[target].name}}
+          <br class="visible-xs-block" />
+          <span class="badge">{{stampInfo[target].count}}</span>
+        </label>
+      </div>
+      <progress-bar class="progress">
+        <progress-bar-stack v-model="stampInfo['anzu'].score(allCount)" label type="primary"></progress-bar-stack>
+        <progress-bar-stack v-model="stampInfo['mikumo'].score(allCount)" label type="success"></progress-bar-stack>
+        <progress-bar-stack v-model="stampInfo['conoha'].score(allCount)" label type="warning"></progressbar>
+      </progress-bar>
+    </div>
+  </div>
+</body>
+</html>
