@@ -10,7 +10,7 @@ const host = (process.env.REDIS_NAME && process.env.REDIS_NAME.split('/').pop())
   || process.env.REDIS_HOST || 'localhost';
 
 const redisOption = {
-  db: process.env.REDIS_DB || 0,
+  db: process.env.FANCLAB_REDIS_DB || 0,
   port,
   host,
 };
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(serve(path.resolve('./public')));
 }
 
-const server = app.listen(process.env.PORT || 3000);
+const server = app.listen(process.env.FANCLAB_PORT || 3000);
 const io = require('socket.io')(server);
 
 io.on('connection', async (socket) => {

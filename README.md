@@ -1,7 +1,8 @@
 みくもファンクラブ
 ===
 
-[みくもファンクラブ](https://mikumo.abcang.net)
+- [みくもファンクラブ](https://mikumo.abcang.net)
+- [みくもスタンプ](https://stamp.mikumo.abcang.net)
 
 ## 必要な環境
 * Node.js v16以上
@@ -11,6 +12,7 @@
 
 ```bash
 $ yarn
+$ cd fanclub # or stamp
 $ yarn dev
 ```
 
@@ -26,7 +28,7 @@ dockerを使う場合
 
 ```bash
 $ docker build -t mikumo_fanclub .
-$ docker run -it --rm -p 3000:80 --link redis:redis mikumo_fanclub
+$ docker run -it --rm -p 80:80 --link redis:redis mikumo_fanclub
 ```
 
 ## ライセンス

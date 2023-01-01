@@ -1,6 +1,6 @@
 {
   "private": true,
-  "workspaces": ["fanclub"],
+  "workspaces": ["fanclub", "stamp"],
   "scripts": {
     "start": "yarn workspaces run start",
     "release-build": "yarn workspaces run release-build",

@@ -52,4 +52,5 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
-fanclub/public/*
+fanclub/public
+stamp/public

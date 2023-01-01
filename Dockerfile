@@ -20,6 +20,7 @@ RUN npm install -g foreman
 
 COPY package.json yarn.lock /app/
 COPY fanclub/package.json /app/fanclub/
+COPY stamp/package.json /app/stamp/
 RUN yarn install
 COPY . /app
 RUN npm run release-build

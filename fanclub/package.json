@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "NODE_ENV=development nodemon --inspect ./server.js --ignore public --ignore client",
-    "start": "PORT=3000 NODE_ENV=production node ./server.js",
+    "start": "NODE_ENV=production node ./server.js",
     "build": "webpack --mode development",
     "release-build": "webpack --mode production",
     "lint": "eslint *.js client/**/*.js",
