@@ -21,7 +21,8 @@ $ yarn dev
 ```bash
 $ yarn
 $ yarn release-build
-$ yarn start
+$ yarn workspace mikumo_fanclub run start
+$ yarn workspace mikumo_stamp run start
 ```
 
 dockerを使う場合
