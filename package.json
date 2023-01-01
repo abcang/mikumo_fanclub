@@ -1,10 +1,14 @@
 {
   "private": true,
-  "workspaces": ["fanclub", "stamp"],
+  "workspaces": [
+    "fanclub",
+    "stamp"
+  ],
   "scripts": {
-    "start": "yarn workspaces run start",
-    "release-build": "yarn workspaces run release-build",
-    "lint": "yarn workspaces run lint",
-    "lint:fix": "yarn workspaces run lint:fix"
-  }
+    "start": "yarn workspaces foreach -piv run start",
+    "release-build": "yarn workspaces foreach run release-build",
+    "lint": "yarn workspaces foreach run lint",
+    "lint:fix": "yarn workspaces foreach run lint:fix"
+  },
+  "packageManager": "yarn@3.3.1"
 }

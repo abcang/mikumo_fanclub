@@ -52,5 +52,13 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
 fanclub/public
 stamp/public

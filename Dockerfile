@@ -18,7 +18,8 @@ WORKDIR /app
 
 RUN npm install -g foreman
 
-COPY package.json yarn.lock /app/
+COPY package.json yarn.lock .yarnrc.yml /app/
+COPY .yarn /app/.yarn
 COPY fanclub/package.json /app/fanclub/
 COPY stamp/package.json /app/stamp/
 RUN yarn install
