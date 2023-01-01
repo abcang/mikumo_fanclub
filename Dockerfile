@@ -19,6 +19,7 @@ WORKDIR /app
 RUN npm install -g foreman
 
 COPY package.json yarn.lock /app/
+COPY fanclub/package.json /app/fanclub/
 RUN yarn install
 COPY . /app
 RUN npm run release-build

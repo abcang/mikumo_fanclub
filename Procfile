@@ -1,2 +1,2 @@
-web: PORT=3000 npm start
+web: yarn start
 nginx: nginx -g "daemon off;"
